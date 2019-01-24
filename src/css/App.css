@@ -13,9 +13,9 @@ body {
   color: white;
 }
 
-button 
+.answer 
 {
-  display: flex;
-  margin: 5%;
-  padding: 10px 10px 10px 10px
+  display: inline-flex;
+  margin: 10px 50px 10px 50px;
+  padding: 30px 50px 30px 50px
 }

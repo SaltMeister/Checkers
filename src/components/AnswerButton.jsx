@@ -7,7 +7,7 @@ export class AnswerButton extends Component {
   render() {
     return (
         <div>
-            <button>Answer</button>
+            <button class="answer">{this.props.answer}</button>
         </div>
     );
   }

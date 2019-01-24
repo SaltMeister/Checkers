@@ -7,7 +7,7 @@ export class QuestionText extends Component {
   render() {
     return (
       <div>
-          <h1 id="question">QuestionText?</h1>
+          <h1 id="question">{this.props.question}</h1>
       </div>
     );
   }
