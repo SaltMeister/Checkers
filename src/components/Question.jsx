@@ -4,15 +4,14 @@ import { AnswerButton} from './AnswerButton.jsx';
 // import components
 
 export class Question extends Component {
-
   render() {
     return (
       <div>
-        <QuestionText question = "What is the right answer?"/>
-        <AnswerButton answer = "Answer 1" />
-        <AnswerButton answer = "Answer 2"/>
-        <AnswerButton answer = "Answer 3"/>
-        <AnswerButton answer = "Answer 4"/>
+        <QuestionText question={this.props.QuestionText}/>
+        <AnswerButton answer={this.props.choice[0]} onButtonClick={this.props.onClick} />
+        <AnswerButton answer={this.props.choice[1]} onButtonClick={this.props.onClick} />
+        <AnswerButton answer={this.props.choice[2]} onButtonClick={this.props.onClick} />
+        <AnswerButton answer={this.props.choice[3]} onButtonClick={this.props.onClick} />
       </div>
     );
   }
