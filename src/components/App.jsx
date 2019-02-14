@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import { Question } from './Question.jsx';
+import AnswerButton from './AnswerButton';
+import { app } from 'firebase';
 //import { buildFirebase} from '../clients/firebase.js';
 // import components
 
@@ -20,7 +22,10 @@ class App extends Component {
 
   handleClick()
   {
-    alert("You clicked the button");
+    if (app.answer === this.state.answer)
+    {
+      this.setState({choices: ["yes", "yes", "no", "yes"]});
+    }
   }
   
   render() {
