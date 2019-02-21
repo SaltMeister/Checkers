@@ -16,22 +16,35 @@ class App extends Component {
     super(props);
     this.state =   {  questionText: "What is the capital of New York",
                       answer: "Albany",
-                      choices: ["Austin", "SF", "Albany", "New York City"]
+                      choices: ["Austin", "SF", "Albany", "New York City"],
+                      answerClicked: false,
                    }
   }
 
-  handleClick()
+  handleClick(clickedAnswer)
   {
-    if (app.answer === this.state.answer)
-    {
-      this.setState({choices: ["yes", "yes", "no", "yes"]});
-    }
+      this.setState({
+          answerClicked: true,
+      })
+      if(this.state.choices[clickedAnswer] === this.state.answer) 
+      {
+        this.setState({
+          choices: ["Correct", "Correct", "Correct", "Correct"],
+        })
+      }
+      else if (this.state.choices[clickedAnswer] !== this.state.answer)
+      {
+        this.setState({
+          choices: ["Incorrect", "Incorrect", "Incorrect", "Incorrect"],
+        })
+      }
+
   }
-  
+
   render() {
     return (
       <div className="app">
-        <Question QuestionText={this.state.questionText} choice={this.state.choices} onClick={ () => this.handleClick() }/>
+        <Question className="question" QuestionText={this.state.questionText} choice={this.state.choices} onClick={ (clickedAnswer) => this.handleClick(clickedAnswer) }/>
       </div> 
     );
   }
