@@ -6,6 +6,7 @@ body {
 
 .app {
   text-align: center;
+  display: block;
 }
 
 #question 
@@ -21,4 +22,12 @@ body {
 .correctAnswer 
 {
   background-color: green;
+}
+#nextQuestion
+{
+  height: 25px;
+}
+button 
+{
+  min-width: 200px;  
 }

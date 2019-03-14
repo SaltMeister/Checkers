@@ -28,13 +28,14 @@ class App extends Component {
                       choices: ["Austin", "SF", "Albany", "New York City"],
                       currentIndex: 0,
                    }
+
       getQuestions((questions) => {
       console.log(questions);
         this.setState({
           ...this.state,
           "questions": questions
         });
-      });               
+      });
   }
   handleClick(clickedAnswer)
   {
@@ -49,9 +50,7 @@ class App extends Component {
         this.setState({
           choices: ["Incorrect", "Incorrect", "Incorrect", "Incorrect"],
         })
-      }
-      
-      
+      }  
   }
 
   resetButton()
@@ -62,6 +61,7 @@ class App extends Component {
       correct_choice_index: this.state.questions[this.state.currentIndex].correct_choice_index,
       questions: this.state.questions,
       choices: this.state.questions[this.state.currentIndex].choices,
+      currentIndex: this.state.currentIndex += 1,
     })
   }
 
