@@ -63,6 +63,13 @@ class App extends Component {
       choices: this.state.questions[this.state.currentIndex].choices,
       currentIndex: this.state.currentIndex += 1,
     })
+
+    if (this.state.questionText === undefined)
+    {
+      this.setState({
+        questions: "The game over stop play",
+      })
+    }
   }
 
   render() {
