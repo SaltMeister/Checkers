@@ -23,10 +23,10 @@ export function getQuestions(cb) {
 class App extends Component {
   constructor (props) {
     super(props);
-    this.state =   {  questionText: "What is the capital of New York",
-                      correct_choice_index: 2,
-                      choices: ["Austin", "SF", "Albany", "New York City"],
-                      currentIndex: 0,
+    this.state =   {  userChoice: 0,
+                      opponentChoice: 0,
+                      trumpCard: 0,
+                      winAmount: 0,
                    }
 
       getQuestions((questions) => {
