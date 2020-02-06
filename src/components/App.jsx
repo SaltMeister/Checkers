@@ -2,23 +2,25 @@ import React, { Component } from 'react';
 import '../css/App.css';
 import { Question } from './Question.jsx';
 import AnswerButton from './AnswerButton';
-import { app } from 'firebase';
-import firebase from 'firebase';
+// import { app } from 'firebase';
+// import firebase from 'firebase';
+import Bet from './Bet.jsx';
+import Hand from './Hand.jsx';
 
-export function getQuestions(cb) {
-  const app = firebase.initializeApp({
-    apiKey: "AIzaSyADAYC7lX5QVEspv8BUeV2uDqrFle8yQpk",
-    authDomain: "studio-trivia-db.firebaseapp.com",
-    databaseURL: "https://studio-trivia-db.firebaseio.com",
-    projectId: "studio-trivia-db",
-    storageBucket: "studio-trivia-db.appspot.com",
-    messagingSenderId: "736024037811"
-  });
-  firebase.database(app).ref('/questions').on('value', (snapshot) => {
-    let questions = Object.values(snapshot.val());
-    cb(questions);
-  });
-}
+// export function getQuestions(cb) {
+//   const app = firebase.initializeApp({
+//     apiKey: "AIzaSyADAYC7lX5QVEspv8BUeV2uDqrFle8yQpk",
+//     authDomain: "studio-trivia-db.firebaseapp.com",
+//     databaseURL: "https://studio-trivia-db.firebaseio.com",
+//     projectId: "studio-trivia-db",
+//     storageBucket: "studio-trivia-db.appspot.com",
+//     messagingSenderId: "736024037811"
+//   });
+//   firebase.database(app).ref('/questions').on('value', (snapshot) => {
+//     let questions = Object.values(snapshot.val());
+//     cb(questions);
+//   });
+// }
 
 class App extends Component {
   constructor (props) {
@@ -29,13 +31,13 @@ class App extends Component {
                       winAmount: 0,
                    }
 
-      getQuestions((questions) => {
-      console.log(questions);
-        this.setState({
-          ...this.state,
-          "questions": questions
-        });
-      });
+      // getQuestions((questions) => {
+      // console.log(questions);
+      //   this.setState({
+      //     ...this.state,
+      //     "questions": questions
+      //   });
+      // });
   }
   handleClick(clickedAnswer)
   {
@@ -75,13 +77,14 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Question className="question" QuestionText={this.state.questionText} choice={this.state.choices} onClick={ (clickedAnswer) => this.handleClick(clickedAnswer) }/>
         <button id="nextQuestion" onClick={ () => this.resetButton()}>Next Question</button>
+        <Bet></Bet>
+        <Hand></Hand>
       </div> 
     );
   }
 }
-
+//<Question className="question" QuestionText={this.state.questionText} choice={this.state.choices} onClick={ (clickedAnswer) => this.handleClick(clickedAnswer) }/>
 
 
 export default App;
