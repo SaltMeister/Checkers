@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // import components
 
 
-export class card extends Component {
-    constructor(){
+export class Card extends Component {
+    constructor(props){
       super(props);
       let deck = [
               {
@@ -271,16 +271,24 @@ export class card extends Component {
         this.state = { deck: deck };
     };
       
-    shuffleDeck(){
-      let randomDeck = shuffle(deck);
+    shuffleDeck(data){
+      var j, x, i;
+      for (i = data.length - 1; i > 0; i--) {
+          j = Math.floor(Math.random() * (i + 1));
+          x = data[i];
+          data[i] = data[j];
+          data[j] = x;
+      }
+      let randomDeck = data;
       this.setState({
-          deck: randomDeck
+          deck: this.randomDeck,
       })
+      console.log(this.state.deck);
     }
     render(){
         return (
             <div>
-                <img src=""></img>
+                <button onClick={this.props.deck}>Shuffle DECK</button>
             </div>
         );
     }
