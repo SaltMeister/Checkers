@@ -31,3 +31,7 @@ button
 {
   min-width: 200px;  
 }
+.cardImg
+{
+  height: 100px;
+}

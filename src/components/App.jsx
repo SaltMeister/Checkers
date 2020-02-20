@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import { Question } from './Question.jsx';
-import AnswerButton from './AnswerButton';
-import Databas
-
-
+import AnswerButton from './AnswerButton.jsx';
+import getDataBase from './Database.jsx';
 
 // import { app } from 'firebase';
 // import firebase from 'firebase';
@@ -282,7 +280,10 @@ class App extends Component {
                               image: "https://www.heritage-print.com/p/731/king-spades-deck-goodall-son-ltd-playing-cards-14968580.jpg.webp",
                           }
           
-                      ]
+                      ],
+                      card1: [],
+                      card2: [],
+                      card3: [],
                    }
   }
   handleClick(clickedAnswer){
@@ -317,15 +318,45 @@ class App extends Component {
       })
     }
   }
+  shuffleDeck(data){
+    var j, x, i;
+    for (i = data.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = data[i];
+        data[i] = data[j];
+        data[j] = x;
+    }
+    let randomDeck = data;
+    this.setState({
+        deck: randomDeck,
+    })
+    console.log(this.state.deck);
+    this.assignCards();
+  }
 
+  assignCards()
+  {
+      let first = this.state.deck[0];
+      let second = this.state.deck[1];
+      let third = this.state.deck[2];
+      this.setState({
+            card1: first,
+            card2: second,
+            card3: third,
+      });
+      console.log(this.state.card1);
+    }
   render() {
     return (
       <div className="app">
+        <p>Turn:</p>
         <Bet></Bet>
+            <div>
+                <button onClick={ () => this.shuffleDeck(this.state.deck) }>Shuffle DECK</button>
+            </div>
+        <Card></Card>
 
-        <Card onClick={this.state.deck}></Card>
-
-        <Hand></Hand>
+        <Hand card1={this.state.card1} card2={this.state.card2} card3={this.state.card3}></Hand>
         
       </div> 
     );

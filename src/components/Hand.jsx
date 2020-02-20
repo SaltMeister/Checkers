@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import '../css/App.css';
+
 // import components
 
 
@@ -12,17 +14,17 @@ export class Hand extends Component {
   }
   handtoPile(card){
     this.setState({
-      pile : card
+      pile : card.image
     });
     
   }
   render() {
     return (
         <div>
-          <p>{this.state.pile}</p>
-           <button onClick={ () => this.handtoPile(this.state.myHand[0])}>Card</button>
-           <button onClick={ () => this.handtoPile(this.state.myHand[1])}>Card</button>
-           <button onClick={ () => this.handtoPile(this.state.myHand[2])}>Card</button>
+            <img src={this.state.pile} classname="cardImg"></img>
+           <button onClick={ () => this.handtoPile(this.props.card1)}><img src={this.props.card1.image} className="cardImg"></img></button>
+           <button onClick={ () => this.handtoPile(this.props.card2)}><img src={this.props.card2.image} className="cardImg"></img></button>
+           <button onClick={ () => this.handtoPile(this.props.card3)}><img src={this.props.card3.image} className="cardImg"></img></button>
         </div>
     );
   }

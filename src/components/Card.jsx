@@ -271,25 +271,10 @@ export class Card extends Component {
         this.state = { deck: deck };
     };
       
-    shuffleDeck(data){
-      var j, x, i;
-      for (i = data.length - 1; i > 0; i--) {
-          j = Math.floor(Math.random() * (i + 1));
-          x = data[i];
-          data[i] = data[j];
-          data[j] = x;
-      }
-      let randomDeck = data;
-      this.setState({
-          deck: this.randomDeck,
-      })
-      console.log(this.state.deck);
-    }
+
     render(){
         return (
-            <div>
-                <button onClick={this.props.deck}>Shuffle DECK</button>
-            </div>
+            <div></div>
         );
     }
 }
