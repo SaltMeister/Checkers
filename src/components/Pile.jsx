@@ -38,11 +38,11 @@ export class Pile extends Component {
         highestCard = hand2;
       }
     } else if(hand1.suit === trumpCard.suit && hand2.suit === trumpCard.suit){
-      if(hand1.number > hand2.number){
-        highestCard = hand1;
-      } else {
-        highestCard = hand2;
-      }
+        if(hand1.number > hand2.number){
+          highestCard = hand1;
+        } else {
+          highestCard = hand2;
+        }
     } else if(hand1.suit === trumpCard.suit && hand2.suit != trumpCard.suit){
         highestCard = hand1;
     }

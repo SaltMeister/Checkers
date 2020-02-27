@@ -8,17 +8,43 @@ export function getDatabase(cb) {
     //   cb(round);
     // });
     var database = buildFirebase();
-    var databaseRef = database.ref("/round");
+    var databaseRef = database.ref("/game");
     databaseRef.once("value").then(function(data) {
-    const round = data.val();
+    const game = data.val();
+
   });
 } 
-// function turnCountWrite(){
-//   buildFirebase.database().ref(/* turns destination*/).set({
-//     turn: turn + 1
-//   });
-
-// }
-// function turnCountRead(){
- 
- }
+// function writeUser(guess, cards ) {
+  //   // A post entry.
+  //   var userData = {
+  //       player:{
+  //       bet: guess,
+  //       hand: cards}
+  //   };
+  
+  //   // Get a key for a new Post.
+  //   var newPlayerKey = firebase.database().ref().child('player').push().key;
+  
+  //   // Write the new post's data simultaneously in the posts list and the user's post list.
+  //   var updates = {};
+  //   updates['/bets/' + newPlayertKey] = postData;
+  //   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+  
+  //   return firebase.database().ref().update(updates);
+  // }
+  // function writeTurn(round, pile, trump) {
+  //   // A post entry.
+  //   var turnData = {
+  //     turn: round,
+  //     pileTop: pile,
+  //     trumpCard: trump
+  //   };
+  
+  //   // Get a key for a new Post.
+  //   var newTurnKey = firebase.database().ref().child('turn').push().key;
+  
+  //   // Write the new post's data simultaneously in the posts list and the user's post list.
+  //   var updates = {};
+  //   updates['/turn/' + newTurnKey] = postData;
+  //   return firebase.database().ref().update(updates);
+  // }

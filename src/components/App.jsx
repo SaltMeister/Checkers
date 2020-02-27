@@ -284,54 +284,27 @@ class App extends Component {
                       card1: [],
                       card2: [],
                       card3: [],
+                      card4: [],
+                      didShuffleDeck: false,
                    }
   }
-  handleClick(clickedAnswer){
-      if(clickedAnswer === this.state.correct_choice_index) 
-      {
-        this.setState({
-          choices: ["Correct", "Correct", "Correct", "Correct"],
-        })
-      }
-      else if (clickedAnswer !== this.state.correct_choice_index)
-      {
-        this.setState({
-          choices: ["Incorrect", "Incorrect", "Incorrect", "Incorrect"],
-        })
-      }  
-  }
-
-  resetButton(){
-    this.setState({
-      questionText: this.state.questions[this.state.currentIndex].question_text,
-      questions: this.state.questions,
-      correct_choice_index: this.state.questions[this.state.currentIndex].correct_choice_index,
-      questions: this.state.questions,
-      choices: this.state.questions[this.state.currentIndex].choices,
-      currentIndex: this.state.currentIndex += 1,
-    })
-
-    if (this.state.questionText === undefined)
-    {
-      this.setState({
-        questions: "The game over stop play",
-      })
-    }
-  }
   shuffleDeck(data){
-    var j, x, i;
-    for (i = data.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = data[i];
-        data[i] = data[j];
-        data[j] = x;
+    if(this.state.didShuffleDeck === false)
+    {
+        var j, x, i;
+        for (i = data.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = data[i];
+            data[i] = data[j];
+            data[j] = x;
+        }
+        let randomDeck = data;
+        this.setState({
+            deck: randomDeck,
+            didShuffleDeck: true,
+        })
+        this.assignCards();
     }
-    let randomDeck = data;
-    this.setState({
-        deck: randomDeck,
-    })
-    console.log(this.state.deck);
-    this.assignCards();
   }
 
   assignCards()
@@ -339,24 +312,30 @@ class App extends Component {
       let first = this.state.deck[0];
       let second = this.state.deck[1];
       let third = this.state.deck[2];
+      let fourth = this.state.deck[3];
       this.setState({
             card1: first,
             card2: second,
             card3: third,
+            card4: fourth,
       });
-      console.log(this.state.card1);
     }
+    handtoPile(card){
+        this.setState({
+          pile : card.image,
+          click: !this.state.click
+        })
+      }
   render() {
     return (
       <div className="app">
         <p>Turn:</p>
         <Bet></Bet>
             <div>
-                <button onClick={ () => this.shuffleDeck(this.state.deck) }>Shuffle DECK</button>
+                <button onClick={ () => this.shuffleDeck(this.state.deck)}>Shuffle DECK</button>
             </div>
         <Card></Card>
-
-        <Hand card1={this.state.card1} card2={this.state.card2} card3={this.state.card3}></Hand>
+        <Hand card1={this.state.card1} card2={this.state.card2} card3={this.state.card3} card4={this.state.card4}></Hand>
         
       </div> 
     );

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 // import components
 
-
 export class Bet extends Component {
   constructor(props)
   {
     super(props);
     this.state = {
-      bet : 1
+      bet : 0,
+      visualBet: 0,
+      clicked: false
     };
   }
 
@@ -15,7 +16,6 @@ export class Bet extends Component {
   {
       this.setState({bet : event.target.value});
   }
-
   checkInput()
   {
       if (this.state.bet > 3)
@@ -25,6 +25,10 @@ export class Bet extends Component {
       else 
       {
         //push data to firebase about the bets the user made or the enemy.
+        this.setState({
+          visualBet: this.state.bet,
+          clicked: true
+        })
       }
   }
 
@@ -34,6 +38,7 @@ export class Bet extends Component {
            <h3>Make a bet</h3>
            <input placeholder="enter a number" onChange={this.handleChange}></input>
            <button onClick={ () => this.checkInput()}>Make Bet</button>
+           <p>Bet:{this.state.visualBet}</p>
         </div>
     );
   }

@@ -34,4 +34,9 @@ button
 .cardImg
 {
   height: 100px;
+  max-height: 100px;
+}
+#betDiv
+{
+  float:right; 
 }
