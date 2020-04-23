@@ -40,3 +40,14 @@ button
 {
   float:right; 
 }
+
+
+
+.piece
+{
+  width: 50px;
+}
+.block
+{
+  border: 1px solid black;
+}

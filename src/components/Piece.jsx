@@ -12,7 +12,7 @@ export class Piece extends Component {
   render() {
     return (
         <div>
-
+            <img class="piece" src={this.props.pieceImg}></img>
         </div>
     );
   }
