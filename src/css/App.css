@@ -40,8 +40,18 @@ button
 {
   float:right; 
 }
-
-
+.box
+{
+  border: 1px solid black;
+  padding: 25px;
+  max-width: 25px;
+  max-height: 25px;
+  display: inline-block;
+}
+.row
+{
+  margin: 0px;
+}
 
 .piece
 {
@@ -50,4 +60,13 @@ button
 .block
 {
   border: 1px solid black;
+}
+#turn
+{
+  position: absolute;
+  float: left;
+  width: 200px;
+  text-align: center;
+  background-color: lightgreen;
+  top: 0px;
 }
