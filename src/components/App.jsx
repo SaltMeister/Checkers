@@ -8,10 +8,16 @@ class App extends Component {
     //when turn is 0, it is player turn, 1 is enemy turn
     this.state = {  
         turn: 0,
+        turnMessage: "Your Turn",
         board: [
-          [null, null, null],
-          [null, null, null],
-          [null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
+          [null, null, null, null, null, null, null, null],
         ]
                 }
   }
@@ -21,34 +27,40 @@ class App extends Component {
     {
       this.setState({
         turn: 1,
+        turnMessage: "Enemy Turn",
       })
     }
     else
     {
       this.setState({
         turn: 0,
+        turnMessage: "Your Turn",
       })
     }
   }
   makeBoard()
   {
-    for(let i=0; i<this.state.board.length;i++)
-    {
-        for(let k=0;k<this.state.board[i].length;k++)
-        {
-          console.log(this.state.board[i][k]);
-        }
-    }
-    console.log(this.state.board);
-  }
-
+     this.state.board.map( row => row.map(column => <div className="box"></div>));
+    //this.state.board.map((row, rowIndex) => { return (<div className="box"> {row.map((column, columnIndex) =>
+      //    { return ( column => <div className="box"></div>)} )}</div>)}
+    
+  
+  }//end of function
   render() {
     return (
       <div className="app">
-        <p>{this.state.turn}</p>
-        <button onClick={ () => this.makeBoard()}>Click for turn change</button>
-        <Piece pieceImg='https://i.ya-webdesign.com/images/checkers-king-png-11.png'></Piece>
+        <div id="turn">
+          <h1>{this.state.turnMessage}</h1>
+        </div>
         
+        <p>{this.state.turn}</p>
+        <button onClick={ () => this.handleTurn()}>Click for turn change</button>
+        <Piece pieceImg='https://i.ya-webdesign.com/images/checkers-king-png-11.png'></Piece>
+<<<<<<< HEAD
+        
+=======
+    {this.state.board.map( row => { return (<div className="row"> { row.map( column => { return (<div className="box">{column}</div>)} )}</div>)})}      
+>>>>>>> d2262aefccb5d0e700654f08caf7ee817f3f5f4a
       </div> 
     );
   }
