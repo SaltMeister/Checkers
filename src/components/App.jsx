@@ -48,6 +48,7 @@ class App extends Component {
         <p>{this.state.turn}</p>
         <button onClick={ () => this.makeBoard()}>Click for turn change</button>
         <Piece pieceImg='https://i.ya-webdesign.com/images/checkers-king-png-11.png'></Piece>
+        
       </div> 
     );
   }
