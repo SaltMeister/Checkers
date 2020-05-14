@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Piece from './Piece.jsx';
+//import Piece from './Piece.jsx';
+import Board from './Board.jsx';
 import '../css/App.css';
 
 class App extends Component {
@@ -9,16 +10,8 @@ class App extends Component {
     this.state = {  
         turn: 0,
         turnMessage: "Your Turn",
-        board: [
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-          [null, null, null, null, null, null, null, null],
-        ]
+        yourPiece: "https://i.ya-webdesign.com/images/checkers-king-png-11.png",
+        enemyPiece: "",
                 }
   }
   handleTurn()
@@ -38,14 +31,12 @@ class App extends Component {
       })
     }
   }
-  makeBoard()
+  placeBoard()
   {
-     this.state.board.map( row => row.map(column => <div className="box"></div>));
-    //this.state.board.map((row, rowIndex) => { return (<div className="box"> {row.map((column, columnIndex) =>
-      //    { return ( column => <div className="box"></div>)} )}</div>)}
     
-  
+
   }//end of function
+
   render() {
     return (
       <div className="app">
@@ -55,16 +46,12 @@ class App extends Component {
         
         <p>{this.state.turn}</p>
         <button onClick={ () => this.handleTurn()}>Click for turn change</button>
-        <Piece pieceImg='https://i.ya-webdesign.com/images/checkers-king-png-11.png'></Piece>
-<<<<<<< HEAD
-        
-=======
-    {this.state.board.map( row => { return (<div className="row"> { row.map( column => { return (<div className="box">{column}</div>)} )}</div>)})}      
->>>>>>> d2262aefccb5d0e700654f08caf7ee817f3f5f4a
+        <img src="../assets/yourPiece.png"></img>
+        <Board piece={this.state.yourPiece}></Board>
       </div> 
     );
   }
 }
-
+//<img src={column} class="piece"></img>
 
 export default App;
