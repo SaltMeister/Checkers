@@ -8,14 +8,14 @@ export class Board extends Component {
     super(props);
     this.state = {        
       board: [
+      ['https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png'],
+      ['https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png'],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, null, null],
-      [null, null, null, null, null, null, null, null],
+      ['https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png'], 
+      ['https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png', 'https://i.ya-webdesign.com/images/checkers-king-png-11.png'],
     ]
     }
   }
@@ -24,14 +24,7 @@ export class Board extends Component {
     return (
         <div>
           {this.state.board.map( row => { return (<div className="row"> { row.map( (column, index) => { 
-            if(index === 5)
-            {
-            return (<div className="box"><Piece pieceImg='https://i.ya-webdesign.com/images/checkers-king-png-11.png'></Piece></div>);
-            }
-            else
-            {
-              return (<div className="box"></div>)
-            }
+            return (<div className="box"><Piece pieceImg={column}></Piece></div>);
             } )}</div>)})}  
         </div>
     );
