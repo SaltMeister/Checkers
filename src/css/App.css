@@ -44,20 +44,21 @@ button
 {
   border: 1px solid black;
   padding: 0px;
-  max-width: 50px;
-  max-height: 50px;
-  min-width: 50px;
-  min-height: 50px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
   display: inline-block;
 }
 .row
 {
   margin: 0px;
+  display: flex;
 }
 
 .piece
 {
-  width: 50px;
+  max-width:100px;
 }
 .block
 {
@@ -69,6 +70,18 @@ button
   float: left;
   width: 200px;
   text-align: center;
-  background-color: lightgreen;
+  background-color: #3CB371;
   top: 0px;
+}
+.container
+{
+  display: inline-block;
+}
+.white
+{
+  background-color: white;
+}
+.black
+{
+  background-color: brown;
 }

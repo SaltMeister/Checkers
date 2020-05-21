@@ -10,8 +10,8 @@ class App extends Component {
     this.state = {  
         turn: 0,
         turnMessage: "Your Turn",
-        yourPiece: "https://i.ya-webdesign.com/images/checkers-king-png-11.png",
-        enemyPiece: "",
+        yourPiece: 'https://chongzizil.github.io/Checkers-SMG/imgs/black_man.png',
+        enemyPiece: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT2KGHea9sVjCtOtz1FidEXhtaQU8GLwjRxFbrpomFgRWSezqjS&usqp=CAU',
                 }
   }
   handleTurn()
@@ -29,29 +29,24 @@ class App extends Component {
         turn: 0,
         turnMessage: "Your Turn",
       })
+
     }
   }
-  placeBoard()
-  {
-    
-
-  }//end of function
 
   render() {
+    let containerStyle = {};
+    if(this.state.turn === 1)
+      containerStyle.background = "#CD5C5C";
+    
     return (
       <div className="app">
-        <div id="turn">
+        <div id="turn" style={containerStyle}>
           <h1>{this.state.turnMessage}</h1>
         </div>
-        
-        <p>{this.state.turn}</p>
-        <button onClick={ () => this.handleTurn()}>Click for turn change</button>
-        <img src="../assets/yourPiece.png"></img>
-        <Board piece={this.state.yourPiece}></Board>
+        <Board turnNumber={this.state.turn} turn={() => this.handleTurn()}piece={this.state.yourPiece} enemyPiece={this.state.enemyPiece}></Board>
       </div> 
     );
   }
 }
-//<img src={column} class="piece"></img>
 
 export default App;
