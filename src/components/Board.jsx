@@ -274,7 +274,7 @@ export class Board extends Component {
       let rowDist = moveRow - currentRow;
       console.log(rowDist);
       //forward killing for enemy king
-      if((colDist === 2 && rowDist === -2) && ((this.state.board[currentRow - 1][currentColumn + 1]) === this.props.yourKingPiece || (this.state.board[currentRow - 1][currentColumn + 1]) === this.props.yourKingPiece))
+      if((colDist === 2 && rowDist === -2) && ((this.state.board[currentRow - 1][currentColumn + 1]) === this.props.piece || (this.state.board[currentRow - 1][currentColumn + 1]) === this.props.yourKingPiece))
       {
         newBoard[moveRow][moveColumn] = pieceType;
         newBoard[currentRow][currentColumn] = null;
@@ -287,7 +287,7 @@ export class Board extends Component {
           });
         {this.props.turn()}
       }
-      else if ((colDist === -2 && rowDist === -2) && ((this.state.board[currentRow - 1][currentColumn - 1]) === this.props.yourKingPiece || (this.state.board[currentRow - 1][currentColumn - 1]) === this.props.yourKingPiece))
+      else if ((colDist === -2 && rowDist === -2) && ((this.state.board[currentRow - 1][currentColumn - 1]) === this.props.piece || (this.state.board[currentRow - 1][currentColumn - 1]) === this.props.yourKingPiece))
       {
         newBoard[moveRow][moveColumn] = pieceType;
         newBoard[currentRow][currentColumn] = null;
@@ -301,7 +301,7 @@ export class Board extends Component {
         {this.props.turn()}
       } 
       //backward killing for enemy king
-      else if ((colDist === 2 && rowDist === 2) && ((this.state.board[currentRow + 1][currentColumn + 1]) === this.props.yourKingPiece || (this.state.board[currentRow + 1][currentColumn + 1]) === this.props.yourKingPiece))
+      else if ((colDist === 2 && rowDist === 2) && ((this.state.board[currentRow + 1][currentColumn + 1]) === this.props.piece || (this.state.board[currentRow + 1][currentColumn + 1]) === this.props.yourKingPiece))
       {
         newBoard[moveRow][moveColumn] = pieceType;
         newBoard[currentRow][currentColumn] = null;
@@ -314,7 +314,7 @@ export class Board extends Component {
           });
         {this.props.turn()}
       }   
-      else if ((colDist === -2 && rowDist === 2) && ((this.state.board[currentRow + 1][currentColumn - 1]) === this.props.yourKingPiece || (this.state.board[currentRow + 1][currentColumn - 1]) === this.props.yourKingPiece))
+      else if ((colDist === -2 && rowDist === 2) && ((this.state.board[currentRow + 1][currentColumn - 1]) === this.props.piece || (this.state.board[currentRow + 1][currentColumn - 1]) === this.props.yourKingPiece))
       {
         newBoard[moveRow][moveColumn] = pieceType;
         newBoard[currentRow][currentColumn] = null;
