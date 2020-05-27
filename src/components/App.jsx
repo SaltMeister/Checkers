@@ -12,6 +12,8 @@ class App extends Component {
         turnMessage: "Your Turn",
         yourPiece: 'https://chongzizil.github.io/Checkers-SMG/imgs/black_man.png',
         enemyPiece: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT2KGHea9sVjCtOtz1FidEXhtaQU8GLwjRxFbrpomFgRWSezqjS&usqp=CAU',
+        yourKingPiece: 'https://i.ya-webdesign.com/images/checkers-king-png-11.png',
+        enemyKingPiece: 'https://cdn0.iconfinder.com/data/icons/board-games-flat-1/48/Games_BoardGames_Artboard_14-512.png',
                 }
   }
   handleTurn()
@@ -43,7 +45,7 @@ class App extends Component {
         <div id="turn" style={containerStyle}>
           <h1>{this.state.turnMessage}</h1>
         </div>
-        <Board turnNumber={this.state.turn} turn={() => this.handleTurn()}piece={this.state.yourPiece} enemyPiece={this.state.enemyPiece}></Board>
+        <Board turnNumber={this.state.turn} turn={() => this.handleTurn()}piece={this.state.yourPiece} enemyPiece={this.state.enemyPiece} yourKingPiece={this.state.yourKingPiece} enemyKingPiece={this.state.enemyKingPiece}></Board>
       </div> 
     );
   }
