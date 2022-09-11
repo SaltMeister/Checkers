@@ -1,0 +1,13 @@
+{
+  "main.css": "/checkers/static/css/main.e5595bce.chunk.css",
+  "main.js": "/checkers/static/js/main.2b7f2819.chunk.js",
+  "main.js.map": "/checkers/static/js/main.2b7f2819.chunk.js.map",
+  "static/js/1.c57f9efc.chunk.js": "/checkers/static/js/1.c57f9efc.chunk.js",
+  "static/js/1.c57f9efc.chunk.js.map": "/checkers/static/js/1.c57f9efc.chunk.js.map",
+  "runtime~main.js": "/checkers/static/js/runtime~main.d91061b8.js",
+  "runtime~main.js.map": "/checkers/static/js/runtime~main.d91061b8.js.map",
+  "static/css/main.e5595bce.chunk.css.map": "/checkers/static/css/main.e5595bce.chunk.css.map",
+  "index.html": "/checkers/index.html",
+  "precache-manifest.7b480bb1fbbe80e991f5f23e738e7506.js": "/checkers/precache-manifest.7b480bb1fbbe80e991f5f23e738e7506.js",
+  "service-worker.js": "/checkers/service-worker.js"
+}
